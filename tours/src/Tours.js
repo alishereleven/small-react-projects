@@ -1,10 +1,10 @@
 import React from 'react';
 import Tour from './Tour';
 
-const Tours = (props)  => {
+const Tours = ({ tours, deleteOnClick })  => {
   return (
-    props.tours.map(tour => (
-      <Tour tour={tour} key={tour.id}/>
+    tours.map(tour => (
+      <Tour tour={tour} deleteOnClick={deleteOnClick} key={tour.id}/>
     ))
   )
 }
