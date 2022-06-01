@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Tour = ({ tour, deleteOnClick}) => {
-  const [hide, setHide] = useState(true)
+  const [infoHidden, setInfoHidden] = useState(true)
   const { id, image, info, name, price } = tour
 
   return(
@@ -14,9 +14,9 @@ const Tour = ({ tour, deleteOnClick}) => {
             <h4 className='tour-price'>${price}</h4>
           </div>
           <p>
-            {hide ? `${info.slice(0, 200)}...` : info}
-            <button onClick={() => setHide(prevHide => !prevHide)}>
-              {hide ? 'show more' : 'show less'}
+            {infoHidden ? `${info.slice(0, 200)}...` : info}
+            <button onClick={() => setInfoHidden(prevHide => !prevHide)}>
+              {infoHidden ? 'read more' : 'show less'}
             </button>
           </p>
           <button className='delete-btn' onClick={() => deleteOnClick(id)}>not interested</button>
