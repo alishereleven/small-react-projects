@@ -1,6 +1,8 @@
 import React from 'react';
 
-const Categories = ({ categories, setMenu }) => {
+const Categories = ({ selectCategory }) => {
+  const categories = ['all', 'breakfast', 'lunch', 'shakes']
+
   return (
     <div className='btn-container'>
       {
@@ -8,7 +10,7 @@ const Categories = ({ categories, setMenu }) => {
           <button
             key={index}
             className='filter-btn'
-            onClick={() => setMenu(category)}
+            onClick={() => selectCategory(category)}
           >
             {category}
           </button>

@@ -4,8 +4,18 @@ import Categories from './Categories';
 import items from './data';
 
 function App() {
-  const [menu, setMenu] = useState('all')
-  const categories = ['all', 'breakfast', 'lunch', 'shakes']
+  const [menuItems, setMenuItems] = useState(items)
+
+  function selectCategory(category) {
+    setMenuItems(
+      category === 'all' ?
+        items
+        :
+        items.filter(item => (
+          category === item.category && item
+        ))
+    )
+  }
 
   return (
     <main>
@@ -14,8 +24,8 @@ function App() {
           <h2>our menu</h2>
           <div className='underline'></div>
         </header>
-        <Categories categories={categories} setMenu={setMenu}/>
-        <Menu items={items} menu={menu}/>
+        <Categories selectCategory={selectCategory}/>
+        <Menu menuItems={menuItems}/>
       </section>
     </main>
   )
