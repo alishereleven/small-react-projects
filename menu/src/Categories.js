@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Categories = ({ selectCategory }) => {
-  const categories = ['all', 'breakfast', 'lunch', 'shakes']
-
+const Categories = ({ categories, selectCategory }) => {
   return (
     <div className='btn-container'>
       {
