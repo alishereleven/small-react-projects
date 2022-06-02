@@ -13,9 +13,7 @@ function App() {
       category === 'all' ?
         items
         :
-        items.filter(item => (
-          category === item.category && item
-        ))
+        items.filter(item => (category === item.category))
     )
   }
 
