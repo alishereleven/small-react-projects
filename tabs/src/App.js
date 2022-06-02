@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { FaInfo } from 'react-icons/fa'
 import Info from './Info'
 
 const url = 'https://course-api.com/react-tabs-project'
 
 function App() {
   const [loaded, setLoaded] = useState(false)
-  const [index, setIndex] = useState(0)
+  const [value, setValue] = useState(0)
   const [jobs, setJobs] = useState([])
 
   useEffect(() => {
@@ -17,9 +16,7 @@ function App() {
         setLoaded(true)
       })
   }, [])
-
-  console.log(jobs[index])
-
+  
   return (
     loaded ? (
       <main>
@@ -30,21 +27,21 @@ function App() {
           </header>
           <div className='jobs-center'>
             <div className='btn-container'>
-              {jobs.map(({ id, company }, ind) => (
+              {jobs.map(({ id, company }, index) => (
                 <button
                   key={id}
                   className={
-                    `job-btn ${ind === index ? 'active-btn' : ''}`
+                    `job-btn ${index === value && 'active-btn'}`
                   }
                   onClick={
-                    () => setIndex(ind)
+                    () => setValue(index)
                   }
                 >
                   {company}
                 </button>
               ))}
             </div>
-            <Info job={jobs[index]}/>
+            <Info job={jobs[value]}/>
           </div>
           <button className='btn'>more info</button>
         </section>
