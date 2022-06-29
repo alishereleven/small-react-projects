@@ -5,13 +5,9 @@ function App() {
   const [value, setValue] = useState(0);
   const [text, setText] = useState([]);
 
-  function countParagraphs(event) {
-    setValue(event.target.value)
-  }
-
   function generateText(event) {
-    event.preventDefault()
-    setText(data.slice(0, value > 0 ? Math.min(value, data.length) : 1))
+    event.preventDefault();
+    setText(data.slice(0, value > 0 ? Math.min(value, data.length) : 1));
   }
 
   return (
@@ -24,7 +20,7 @@ function App() {
             name='amount'
             id='amount'
             value={value}
-            onChange={countParagraphs}/>
+            onChange={(e) => setValue(e.target.value)}/>
         <button className='btn' onClick={generateText}>generate</button>
       </form>
       <article className='result'>
